@@ -86,10 +86,13 @@ export const ImagesWrapper = styled.div`
   max-width: 450px;
   width: 100%;
   height: 100%;
-  @media (max-width: 1440px) {
-    width: 375px;
-    height: 478px;
-  }
+    @media (max-width: 1440px) {
+        height: 478px;
+        max-width: 375px;
+    }
+    @media (max-width: 400px) {
+        max-width: 350px;
+    }
 `;
 
 export const ImageStack = styled.div`
@@ -99,8 +102,8 @@ export const ImageStack = styled.div`
   border-radius: 32px;
   overflow: hidden;
   @media (max-width: 1440px) {
-    width: 375px;
     height: 478px;
+    max-width: 375px;
   }
 `;
 
@@ -119,4 +122,7 @@ export const StackedImage = styled.img<{ $isActive: boolean }>`
     width: 375px;
     height: 478px;
   }
+    @media (max-width: 400px) {
+        width: 100%;
+    }
 `;
