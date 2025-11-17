@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Partners from "@/components/Partners/Partners";
+import Partners from "@/core/Partners/Partners";
 const PartnersPage = () => {
   return <Partners />;
 };

@@ -1,5 +1,4 @@
 "use client";
-
 import { AnimatePresence } from "motion/react";
 import PropTypes from "prop-types";
 import Image from "next/image";
