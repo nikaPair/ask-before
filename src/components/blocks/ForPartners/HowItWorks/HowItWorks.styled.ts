@@ -85,12 +85,13 @@ export const BottomSection = styled(motion.div)`
 export const ImagesWrapper = styled.div`
   max-width: 450px;
   width: 100%;
+  height: 100%;
 `;
 
 export const ImageStack = styled.div`
   position: relative;
   width: 100%;
-  padding-top: 123%;
+  height: 100%;
   border-radius: 32px;
   overflow: hidden;
 `;
