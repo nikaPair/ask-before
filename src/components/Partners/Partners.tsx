@@ -1,11 +1,12 @@
 'use client'
 
 import React from 'react';
+import Patients from './ui/Patients/Patients';
 
 const Partners = () => {
     return (
         <div>
-            <h1>Partners</h1>
+            <Patients />
         </div>
     );
 }

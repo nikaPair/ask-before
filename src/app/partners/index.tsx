@@ -1,12 +1,8 @@
-'use client'
-import React from 'react';
-
+"use client";
+import React from "react";
+import Partners from "@/components/Partners/Partners";
 const PartnersPage = () => {
-    return (
-        <div>
-            
-        </div>
-    );
-}
+  return <Partners />;
+};
 
 export default PartnersPage;

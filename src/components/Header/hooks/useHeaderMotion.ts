@@ -23,12 +23,12 @@ export function useHeaderMotion () {
   const [isWideScreen, setIsWideScreen] = useState(false)
 
   useEffect(() => {
-    controls.set({ opacity: 0, y: -20, translateX: '-50%' })
+    controls.set({ opacity: 0, y: -15, translateX: '-50%' })
     controls.start({
       opacity: 1,
       y: 0,
       translateX: '-50%',
-      transition: { duration: 0.3, ease: 'easeInOut' }
+      transition: { duration: 0.4, ease: 'easeInOut' }
     })
   }, [pathname, controls])
 
