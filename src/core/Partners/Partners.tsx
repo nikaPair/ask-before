@@ -14,6 +14,7 @@ const Partners = () => {
       <Patients />
       <HowItWorks />
       <Visibility
+        key="visibility-1"
         src="https://lottie.host/f17d9165-16e6-42da-9252-0048f2fd79fa/9DjyFk10E2.lottie"
         text="We offer providers"
         spanText="free"
@@ -22,6 +23,7 @@ const Partners = () => {
       />
       <Benefits />
       <Visibility
+        key="visibility-2"
         src="https://lottie.host/5ce54b6a-593c-45bb-a4a4-e1a77be0adc8/U17mPtX1h1.lottie"
         text="We bring the user. You receive the payment."
         spanText="No risk, just results."

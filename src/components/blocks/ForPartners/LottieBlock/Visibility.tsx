@@ -33,16 +33,32 @@ const Visibility = ({
   text2?: string
 }) => {
   const lottieRef = useRef<DotLottie | null>(null)
+  const isDestroyingRef = useRef(false)
 
   const handleLottieInstance = useCallback((instance: DotLottie | null) => {
     lottieRef.current = instance
+    isDestroyingRef.current = false
   }, [])
 
   useEffect(() => {
     return () => {
-      lottieRef.current?.stop?.()
-      lottieRef.current?.destroy?.()
-      lottieRef.current = null
+      if (isDestroyingRef.current) return
+      isDestroyingRef.current = true
+
+      const instance = lottieRef.current
+      if (instance) {
+        try {
+          instance.stop?.()
+        } catch (e) {
+          // ignore
+        }
+        try {
+          instance.destroy?.()
+        } catch (e) {
+          // ignore
+        }
+        lottieRef.current = null
+      }
     }
   }, [])
 
