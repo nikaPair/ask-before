@@ -1,14 +1,15 @@
 "use client";
+import { motion } from "framer-motion";
 import styled from "styled-components";
-import { motion } from "motion/react";
 
-export const HowItWorksWrapper = styled.div`
+export const BuiltWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
   margin-top: 120px;
+  overflow: hidden;
 `;
-export const HowItWorksContainer = styled(motion.div)`
+export const BuiltContainer = styled(motion.div)`
   max-width: 1200px;
   width: 100%;
   display: flex;
@@ -18,11 +19,17 @@ export const HowItWorksContainer = styled(motion.div)`
     padding: 0 20px;
   }
 `;
+
 export const TopSection = styled(motion.div)`
   display: flex;
+  max-width: 647px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  position: relative;
   gap: 16px;
   .icon-wrapper {
     width: 32px;
@@ -71,58 +78,4 @@ export const TopSection = styled(motion.div)`
     paragraph-spacing: 20px;
     text-align: center;
   }
-`;
-
-export const BottomSection = styled(motion.div)`
-  display: flex;
-  align-items: center;
-  gap: 26px;
-  @media (max-width: 1440px) {
-    flex-direction: column;
-    gap: 50px;
-  }
-`;
-export const ImagesWrapper = styled.div`
-  max-width: 450px;
-  width: 100%;
-  height: 100%;
-    @media (max-width: 1440px) {
-        height: 478px;
-        max-width: 375px;
-    }
-    @media (max-width: 400px) {
-        max-width: 350px;
-    }
-`;
-
-export const ImageStack = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  border-radius: 32px;
-  overflow: hidden;
-  @media (max-width: 1440px) {
-    height: 478px;
-    max-width: 375px;
-  }
-`;
-
-export const StackedImage = styled.img<{ $isActive: boolean }>`
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: inherit;
-  opacity: ${({ $isActive }) => ($isActive ? 1 : 0)};
-  transition: opacity 0.6s ease;
-  will-change: opacity;
-
-  @media (max-width: 1440px) {
-    width: 375px;
-    height: 478px;
-  }
-    @media (max-width: 400px) {
-        width: 100%;
-    }
 `;
