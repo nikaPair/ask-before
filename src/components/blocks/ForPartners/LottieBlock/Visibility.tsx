@@ -1,8 +1,7 @@
 'use client'
 
-import React, { useCallback, useEffect, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
-import type { DotLottie } from '@lottiefiles/dotlottie-react'
 import {
   IconContainer,
   VisibilityContainer,
@@ -11,20 +10,14 @@ import {
   VisibilityWrapper
 } from './Visibility.styled'
 
-const DotLottieReact = dynamic(
-  () =>
-    import('@lottiefiles/dotlottie-react').then(
-      module => module.DotLottieReact
-    ),
-  { ssr: false }
-)
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false })
 
 const Visibility = ({
   src,
   text,
   spanText,
   spanColor,
-  text2,
+  text2
 }: {
   src: string
   text: string
@@ -32,46 +25,22 @@ const Visibility = ({
   spanColor: string
   text2?: string
 }) => {
-  const lottieRef = useRef<DotLottie | null>(null)
-  const isDestroyingRef = useRef(false)
-
-  const handleLottieInstance = useCallback((instance: DotLottie | null) => {
-    lottieRef.current = instance
-    isDestroyingRef.current = false
-  }, [])
+  const [animationData, setAnimationData] = useState(null)
 
   useEffect(() => {
-    return () => {
-      if (isDestroyingRef.current) return
-      isDestroyingRef.current = true
-
-      const instance = lottieRef.current
-      if (instance) {
-        try {
-          instance.stop?.()
-        } catch (e) {
-          // ignore
-        }
-        try {
-          instance.destroy?.()
-        } catch (e) {
-          // ignore
-        }
-        lottieRef.current = null
-      }
-    }
-  }, [])
+    fetch(src)
+      .then(res => res.json())
+      .then(data => setAnimationData(data))
+      .catch(err => console.error('Failed to load animation:', err))
+  }, [src])
 
   return (
     <VisibilityWrapper>
       <VisibilityContainer>
         <IconContainer>
-          <DotLottieReact
-            dotLottieRefCallback={handleLottieInstance}
-            src={src}
-            loop
-            autoplay
-          />
+          {animationData && (
+            <Lottie animationData={animationData} loop autoplay  style={{ width: '100%', height: '100%' }}/>
+          )}
         </IconContainer>
         <VisibilityTitle>
           {text}{' '}

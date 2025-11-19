@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  reactCompiler: true,
+  // Временно отключаем React Compiler из-за несовместимости с WASM (@lottiefiles/dotlottie-react)
+  reactCompiler: false,
   compiler: {
     styledComponents: true,
   }
