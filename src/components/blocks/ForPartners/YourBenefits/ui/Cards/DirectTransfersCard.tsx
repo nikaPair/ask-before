@@ -8,7 +8,8 @@ import {
   ItemTitle,
   ItemTop,
   ThirdCenter,
-  ThirdImage,
+  ThirdImageContainer,
+  ThirdImageLayer,
   ThirdTitle,
 } from "./Cards.styled";
 
@@ -22,10 +23,6 @@ const DirectTransfersCard = () => {
   const handleStripeHoverOff = useCallback(() => {
     setIsStripeHovered(false);
   }, []);
-
-  const stripeLogoSrc = isStripeHovered
-    ? "/images/Benefits/s.png"
-    : "/images/Benefits/stripe.png";
 
   return (
     <Item
@@ -43,13 +40,24 @@ const DirectTransfersCard = () => {
             <ThirdTitle $isHovered={isStripeHovered}>
               Payment connection via
             </ThirdTitle>
-            <ThirdImage
-              src={stripeLogoSrc}
-              alt="Stripe payment integration"
-              width={isStripeHovered ? 65 : 115}
-              height={isStripeHovered ? 65 : 50}
-              $isHovered={isStripeHovered}
-            />
+            <ThirdImageContainer $isHovered={isStripeHovered}>
+              <ThirdImageLayer
+                src="/images/Benefits/stripe.png"
+                alt="Stripe payment integration"
+                width={115}
+                height={50}
+                $isVisible={!isStripeHovered}
+                $radius="0px"
+              />
+              <ThirdImageLayer
+                src="/images/Benefits/s.png"
+                alt="Stripe payment integration"
+                width={65}
+                height={65}
+                $isVisible={isStripeHovered}
+                $radius="15px"
+              />
+            </ThirdImageContainer>
           </ThirdCenter>
         </ItemCenter>
       </ItemTop>

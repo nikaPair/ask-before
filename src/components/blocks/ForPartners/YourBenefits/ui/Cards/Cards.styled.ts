@@ -258,9 +258,25 @@ export const ThirdTitle = styled.h3<{ $isHovered: boolean }>`
   transition: transform 0.3s ease;
 `;
 
-export const ThirdImage = styled(Image)<{ $isHovered: boolean }>`
-  object-fit: contain;
+export const ThirdImageContainer = styled.div<{ $isHovered: boolean }>`
+  position: relative;
   width: ${({ $isHovered }) => ($isHovered ? "65px" : "115px")};
   height: ${({ $isHovered }) => ($isHovered ? "65px" : "50px")};
-  border-radius: ${({ $isHovered }) => ($isHovered ? "15px" : "0px")};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ThirdImageLayer = styled(Image)<{
+  $isVisible: boolean;
+  $radius?: string;
+}>`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: ${({ $isVisible }) => ($isVisible ? 1 : 0)};
+  border-radius: ${({ $radius }) => $radius || "0px"};
 `;
