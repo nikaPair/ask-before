@@ -3,22 +3,23 @@ import { AnimatePresence } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { HeaderContainer, HeaderContent } from "./Header.styled";
-import { useHeaderMotion } from "./hooks/useHeaderMotion";
-import { useLangSelect } from "./hooks/useLangSelect";
+
 import Select from "./ui/Select/Select";
 import HeaderNavigation from "./ui/HeaderNavigation/HeaderNavigation";
 import HeaderActions from "./ui/HeaderActions/HeaderActions";
+import BurgerMenu from "./ui/BurgerMenu/BurgerMenu";
 
-function Header() {
-  const { controls, headerStyle } = useHeaderMotion();
+import { HeaderProvider, useHeaderContext } from "./HeaderContext";
+
+function HeaderLayout() {
   const {
+    controls,
+    headerStyle,
     isLangSelectOpen,
-    handleLangSelectOpen,
-    handleLangSelectClose,
     clearScheduledClose,
-    scheduleLangSelectClose,
-    handleLangSelectKeyDown,
-  } = useLangSelect();
+    handleLangSelectClose,
+    effectiveIsShrunk,
+  } = useHeaderContext();
 
   return (
     <HeaderContainer animate={controls} style={headerStyle}>
@@ -36,7 +37,11 @@ function Header() {
         ) : null}
       </AnimatePresence>
       <HeaderContent>
-        <Link href="/" style={{ width: "181px" }} className="logo-link">
+        <Link
+          href="/"
+          style={{ width: effectiveIsShrunk ? "auto" : "181px" }}
+          className="logo-link"
+        >
           <Image
             src="/images/Logo.png"
             alt="AskBefore"
@@ -46,15 +51,18 @@ function Header() {
           />
         </Link>
         <HeaderNavigation />
-        <HeaderActions
-          isLangSelectOpen={isLangSelectOpen}
-          handleLangSelectOpen={handleLangSelectOpen}
-          handleLangSelectKeyDown={handleLangSelectKeyDown}
-          clearScheduledClose={clearScheduledClose}
-          scheduleLangSelectClose={scheduleLangSelectClose}
-        />
+        <BurgerMenu />
+        <HeaderActions />
       </HeaderContent>
     </HeaderContainer>
+  );
+}
+
+function Header() {
+  return (
+    <HeaderProvider>
+      <HeaderLayout />
+    </HeaderProvider>
   );
 }
 
