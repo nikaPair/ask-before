@@ -14,8 +14,8 @@ export const VisibilityWrapper = styled.div`
   }
 `;
 
-export const VisibilityContainer = styled.div`
-  max-width: 1200px;
+export const VisibilityContainer = styled.div<{ width: string }>`
+  max-width: ${(props) => props.width}px;
   width: 100%;
   border-radius: 48px;
   margin: 0 auto;
@@ -43,17 +43,17 @@ export const IconContainer = styled.div`
     object-fit: contain;
   }
 `;
-export const VisibilityTitle = styled.h2`
+export const VisibilityTitle = styled.h2<{ $maxWidth?: string }>`
   font-size: 48px;
   font-family: var(--noheim-medium);
   color: #262628;
   text-align: center;
   font-weight: 500;
   line-height: 1.4em;
+  max-width: ${(props) => (props.$maxWidth ? `${props.$maxWidth}px` : "100%")};
   @media (max-width: 1000px) {
     font-size: 32px;
-  line-height: 1.2em;
-
+    line-height: 1.2em;
   }
 `;
 export const VisibilitySpan = styled.span`

@@ -7,6 +7,8 @@ import Visibility from "../../components/blocks/ForPartners/LottieBlock/Visibili
 import Benefits from "@/components/blocks/ForPartners/YourBenefits/Benefits";
 import Built from "@/components/blocks/ForPartners/Built/Built";
 import Started from "@/components/blocks/ForPartners/GettingStarted/Started";
+import WhatWeNeed from "@/components/blocks/ForPartners/WhatWeNeed/WhatWeNeed";
+import ReadyToGrow from "@/components/blocks/ForPartners/ReadyToGrow/ReadyToGrow";
 
 const Partners = () => {
   return (
@@ -20,6 +22,7 @@ const Partners = () => {
         spanText="free"
         spanColor="rgb(149, 74, 235)"
         text2="visibility on our map + lead generation"
+        width="1200"
       />
       <Benefits />
       <Visibility
@@ -28,9 +31,22 @@ const Partners = () => {
         text="We bring the user. You receive the payment."
         spanText="No risk, just results."
         spanColor="#ed327e"
+        width="1200"
       />
       <Built />
       <Started />
+      <Visibility
+        key="visibility-3"
+        src="/percents.json"
+        text={
+          <>
+            Commission is taken <br /> only from a successful order
+          </>
+        }
+        width="1640"
+      />
+      <WhatWeNeed />
+      <ReadyToGrow />
     </div>
   );
 };
