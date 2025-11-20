@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Link from "next/link";
 import {
   BlogSection,
   BlogContainer,
@@ -15,14 +16,7 @@ import {
   Date,
 } from "./Blog.styled";
 
-const BLOG_POSTS = [
-  {
-    id: 1,
-    title: "Book an STI Test in Europe — Compare Prices & Availability Easily",
-    date: "Sep 16, 2025",
-    image: "/images/Blog/EN/intimka.png",
-  },
-];
+import { BLOG_POSTS } from "@/data/blogData";
 
 export const Blog = () => {
   return (
@@ -42,21 +36,26 @@ export const Blog = () => {
 
         <Grid>
           {BLOG_POSTS.map((post) => (
-            <Card
+            <Link
+              href={`/blogs/${post.slug}`}
               key={post.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+              style={{ textDecoration: "none" }}
             >
-              <ImageWrapper>
-                <Image src={post.image} alt={post.title} />
-              </ImageWrapper>
-              <CardContent>
-                <CardTitle>{post.title}</CardTitle>
-                <Date>{post.date}</Date>
-              </CardContent>
-            </Card>
+              <Card
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+              >
+                <ImageWrapper>
+                  <Image src={post.image} alt={post.title} />
+                </ImageWrapper>
+                <CardContent>
+                  <CardTitle>{post.title}</CardTitle>
+                  <Date>{post.date}</Date>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </Grid>
       </BlogContainer>
