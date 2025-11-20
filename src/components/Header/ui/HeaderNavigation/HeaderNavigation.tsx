@@ -73,7 +73,7 @@ const HeaderNavigation = () => {
         </NavItem>
         <NavItem>
           <NavLink
-            href="/blog"
+            href="/blogs"
             initial="rest"
             animate="rest"
             whileHover="hover"
