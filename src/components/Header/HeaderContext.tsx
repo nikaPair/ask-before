@@ -44,14 +44,12 @@ export const HeaderProvider = ({ children }: { children: ReactNode }) => {
     setIsBurgerOpen((prev) => !prev);
   };
 
-  // Force header to expand when burger menu is open
   useEffect(() => {
     if (isBurgerOpen && forceExpand) {
       forceExpand();
     }
   }, [isBurgerOpen, forceExpand]);
 
-  // Effective shrunk state considers burger menu
   const effectiveIsShrunk = isShrunk && !isBurgerOpen;
 
   const value = {

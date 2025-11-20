@@ -68,7 +68,7 @@ const HeaderActions = () => {
           }}
         >
           <ContactLink
-            href="mailto:support@intimka.io"
+            href="/contact"
             initial="rest"
             animate="rest"
             whileHover="hover"
