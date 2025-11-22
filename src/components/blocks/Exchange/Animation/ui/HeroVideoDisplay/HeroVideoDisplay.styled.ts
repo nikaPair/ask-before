@@ -12,6 +12,11 @@ export const HeroVideoWrapper = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 768px) {
+    width: 200px;
+    height: 400px;
+  }
 `;
 
 export const HeroVideo = styled.video`

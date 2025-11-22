@@ -18,6 +18,26 @@ export const ScrollItem = styled.li<{ $isActive?: boolean }>`
   transition:
     min-height 0.3s ease,
     border-color 0.3s ease;
+
+  @media (max-width: 768px) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    min-height: auto;
+    height: auto;
+    padding: 24px;
+    opacity: ${(props) => (props.$isActive ? 1 : 0)};
+    visibility: ${(props) => (props.$isActive ? "visible" : "hidden")};
+    transform: ${(props) =>
+      props.$isActive ? "translateY(0)" : "translateY(20px)"};
+    transition:
+      opacity 0.4s ease,
+      transform 0.4s ease,
+      visibility 0.4s ease;
+    pointer-events: ${(props) => (props.$isActive ? "auto" : "none")};
+  }
 `;
 
 export const ItemHeader = styled.div`
@@ -28,11 +48,17 @@ export const ItemHeader = styled.div`
 `;
 
 export const ItemTitle = styled.h2<{ $isActive?: boolean }>`
-  font-family: var(--geist-regular);
-  font-size: 16px;
-  color: #7c3aed; /* Purple color from image */
+  font-family: var(--noheim-medium);
+  font-size: 24px;
+  line-height: 34px;
+  color: #7967e5;
   margin: 0;
   font-weight: 500;
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+    line-height: 24px;
+  }
 `;
 
 export const ItemBigTitle = styled.h3`
@@ -42,6 +68,11 @@ export const ItemBigTitle = styled.h3`
   line-height: 1.1;
   margin: 0;
   letter-spacing: -0.02em;
+
+  @media (max-width: 768px) {
+    font-size: 32px;
+    margin-top: 16px;
+  }
 `;
 
 export const ItemIcon = styled.div<{ $isActive?: boolean }>`
@@ -53,4 +84,24 @@ export const ItemIcon = styled.div<{ $isActive?: boolean }>`
 export const ItemBody = styled(motion.div)`
   overflow: hidden;
   width: 100%;
+
+  @media (max-width: 768px) {
+    height: auto !important;
+    opacity: 1 !important;
+  }
+`;
+
+export const IconContainer = styled.div`
+  background: #f3f4f6;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    width: 32px;
+    height: 32px;
+  }
 `;

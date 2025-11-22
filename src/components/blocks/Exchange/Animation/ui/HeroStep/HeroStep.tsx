@@ -8,6 +8,7 @@ import {
   ItemIcon,
   ItemBody,
   ItemBigTitle,
+  IconContainer,
 } from "./HeroStep.styled";
 
 interface Step {
@@ -34,17 +35,7 @@ export const HeroStep: React.FC<HeroStepProps> = ({
       <ItemHeader>
         <ItemTitle $isActive={isActive}>{step.title}</ItemTitle>
         <ItemIcon $isActive={isActive}>
-          <div
-            style={{
-              background: "#F3F4F6",
-              borderRadius: "50%",
-              width: "32px",
-              height: "32px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
+          <IconContainer>
             <svg
               width="16"
               height="16"
@@ -60,7 +51,7 @@ export const HeroStep: React.FC<HeroStepProps> = ({
                 strokeLinejoin="round"
               />
             </svg>
-          </div>
+          </IconContainer>
         </ItemIcon>
       </ItemHeader>
       <AnimatePresence mode="wait">
