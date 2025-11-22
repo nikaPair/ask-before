@@ -25,9 +25,13 @@ export const ScrollItem = styled.li<{ $isActive?: boolean }>`
     left: 0;
     right: 0;
     width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
     min-height: auto;
     height: auto;
-    padding: 24px;
+    padding: 16px 24px;
+    justify-content: unset;
+    gap: 16px;
     opacity: ${(props) => (props.$isActive ? 1 : 0)};
     visibility: ${(props) => (props.$isActive ? "visible" : "hidden")};
     transform: ${(props) =>
@@ -37,6 +41,10 @@ export const ScrollItem = styled.li<{ $isActive?: boolean }>`
       transform 0.4s ease,
       visibility 0.4s ease;
     pointer-events: ${(props) => (props.$isActive ? "auto" : "none")};
+  }
+  @media (max-width: 400px) {
+    width: 100%;
+    max-width: 100%;
   }
 `;
 
@@ -70,8 +78,7 @@ export const ItemBigTitle = styled.h3`
   letter-spacing: -0.02em;
 
   @media (max-width: 768px) {
-    font-size: 32px;
-    margin-top: 16px;
+    font-size: 30px;
   }
 `;
 

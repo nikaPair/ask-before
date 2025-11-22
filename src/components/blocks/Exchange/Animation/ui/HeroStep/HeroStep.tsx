@@ -64,7 +64,6 @@ export const HeroStep: React.FC<HeroStepProps> = ({
           >
             <div
               style={{
-                height: "120px",
                 display: "flex",
                 alignItems: "center",
               }}

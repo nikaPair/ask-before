@@ -14,8 +14,8 @@ export const AnimationContainer = styled.div`
   height: 3000px;
 
   @media (max-width: 768px) {
-    padding: 0;
-    height: 2000px;
+    padding: 50px 0 0px;
+    height: 1500px;
   }
 `;
 
@@ -28,13 +28,15 @@ export const ScrollWrapper = styled.div`
   scroll-snap-align: center;
   position: sticky;
   top: 200px;
+  padding: 0 20px;
 
   @media (max-width: 768px) {
     flex-direction: column-reverse;
+    justify-content: center;
     align-items: center;
     gap: 0;
-    top: 100px;
-    height: calc(100vh - 100px);
+    top: 80px;
+    height: calc(100vh - 80px);
   }
 `;
 
@@ -47,13 +49,15 @@ export const ScrollList = styled.ul`
   padding-bottom: 60px;
 
   @media (max-width: 768px) {
-    position: absolute;
-    bottom: 20px;
-    left: 0;
-    right: 0;
+    position: relative;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    right: auto;
     padding: 0 20px;
-    margin: 0 auto;
     z-index: 10;
     max-width: 100%;
+    height: 180px;
+    justify-content: flex-end;
   }
 `;

@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 
 export const HeroVideoWrapper = styled(motion.div)`
   width: 375px;
-  height: 750px; /* Approximate height of iPhone frame */
+  height: 750px;
   position: sticky;
   top: 100px;
   z-index: 1;
@@ -15,7 +15,13 @@ export const HeroVideoWrapper = styled(motion.div)`
 
   @media (max-width: 768px) {
     width: 200px;
-    height: 400px;
+    height: auto;
+    position: relative;
+    top: 24px;
+
+    div {
+      border-radius: 8px !important ;
+    }
   }
 `;
 

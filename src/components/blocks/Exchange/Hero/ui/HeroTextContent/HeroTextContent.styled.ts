@@ -8,6 +8,7 @@ export const HeroCTO = styled.div`
   align-items: center;
   justify-content: center;
   gap: 32px;
+  padding: 0 20px;
 `;
 export const TextContainer = styled.div`
   width: 100%;
@@ -25,6 +26,10 @@ export const HeroTitle = styled.h1`
   color: var(--primary);
   line-height: 1.2em;
   max-width: 900px;
+
+  @media (max-width: 768px) {
+    font-size: 32px;
+  }
 `;
 export const HeroSubtitle = styled.p`
   font-size: 16px;
