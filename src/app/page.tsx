@@ -1,4 +1,4 @@
-
+import Exchange from "@/core/Exchange/Exchange";
 export default function Home() {
-  return <div></div>;
+  return <Exchange />;
 }
