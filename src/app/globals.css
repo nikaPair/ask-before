@@ -28,7 +28,7 @@ a {
 }
 @font-face {
   font-family: "Noheim Medium";
-  src: url("../fonts/Nohemi/medium.ttf") format("truetype");
+  src: url("../fonts/Nohemi/medium.otf") format("opentype");
   font-style: normal;
 }
 @font-face {
