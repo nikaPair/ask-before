@@ -32,11 +32,10 @@ export const ScrollWrapper = styled.div`
 
   @media (max-width: 768px) {
     flex-direction: column-reverse;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     gap: 0;
     top: 80px;
-    height: calc(100vh - 80px);
   }
 `;
 
@@ -57,7 +56,7 @@ export const ScrollList = styled.ul`
     padding: 0 20px;
     z-index: 10;
     max-width: 100%;
-    height: 180px;
+    height: 135px;
     justify-content: flex-end;
   }
 `;

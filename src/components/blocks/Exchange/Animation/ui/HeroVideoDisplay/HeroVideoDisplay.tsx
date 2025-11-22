@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 import {
   HeroVideoWrapper,
   HeroVideo,
@@ -17,25 +17,6 @@ interface HeroVideoDisplayProps {
   direction: number;
   steps: Step[];
 }
-
-const variants = {
-  enter: (direction: number) => ({
-    y: direction > 0 ? "100%" : 0,
-    zIndex: direction > 0 ? 5 : 1,
-    opacity: 1,
-  }),
-  center: {
-    y: 0,
-    zIndex: 2,
-    opacity: 1,
-  },
-  exit: (direction: number) => ({
-    y: direction < 0 ? "100%" : 0,
-    zIndex: direction < 0 ? 5 : 1,
-    opacity: direction > 0 ? 0.99 : 1,
-    transition: { duration: 0.6, ease: [0.32, 0.72, 0, 1] as const },
-  }),
-};
 
 export const HeroVideoDisplay: React.FC<HeroVideoDisplayProps> = ({
   activeStep,
@@ -61,35 +42,37 @@ export const HeroVideoDisplay: React.FC<HeroVideoDisplayProps> = ({
           zIndex: 1,
         }}
       >
-        <AnimatePresence initial={false} custom={direction}>
-          <motion.div
-            key={activeStep}
-            custom={direction}
-            variants={variants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{
-              y: { duration: 0.6, ease: [0.32, 0.72, 0, 1] },
-              zIndex: { duration: 0 },
-            }}
-            style={{
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-              top: 0,
-              left: 0,
-            }}
-          >
-            <HeroVideo
-              src={steps[activeStep].video}
-              autoPlay
-              loop
-              muted
-              playsInline
-            />
-          </motion.div>
-        </AnimatePresence>
+        {steps.map((step, index) => {
+          const isAfter = index > activeStep;
+          const isBefore = index < activeStep;
+          const isActive = index === activeStep;
+
+          return (
+            <motion.div
+              key={step.id}
+              initial={false}
+              animate={{
+                y: isAfter ? "100%" : "0%",
+                zIndex: isActive ? 2 : isAfter ? 3 : 1,
+                opacity: 1,
+              }}
+              transition={{
+                duration: 0.6,
+                ease: [0.32, 0.72, 0, 1],
+              }}
+              style={{
+                position: "absolute",
+                width: "100%",
+                height: "100%",
+                top: 0,
+                left: 0,
+                background: "#000", // Fallback background
+              }}
+            >
+              <HeroVideo src={step.video} autoPlay loop muted playsInline />
+            </motion.div>
+          );
+        })}
       </div>
       <HeroIphoneImage src="/images/Exchange/iphone.svg" />
     </HeroVideoWrapper>
