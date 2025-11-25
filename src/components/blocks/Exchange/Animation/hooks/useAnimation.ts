@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from "react";
-import { preload } from "react-dom";
 import { useScroll, useMotionValueEvent } from "motion/react";
 
 interface Step {
@@ -10,12 +9,6 @@ export const useAnimation = (steps: Step[]) => {
   const [activeStep, setActiveStep] = useState(0);
   const [direction, setDirection] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    steps.forEach((step) => {
-      preload(step.video, { as: "video" });
-    });
-  }, [steps]);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,

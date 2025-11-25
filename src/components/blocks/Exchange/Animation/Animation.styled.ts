@@ -12,6 +12,7 @@ export const AnimationContainer = styled.div`
   margin: 0 auto;
   padding: 100px 0 150px 0;
   height: 3000px;
+  position: relative;
 
   @media (max-width: 768px) {
     padding: 50px 0 50px;
