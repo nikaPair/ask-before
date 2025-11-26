@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "motion/react";
 import {
   FAQItem as ItemWrapper,
   QuestionButton,
@@ -8,7 +8,7 @@ import {
   IconWrapper,
   AnswerWrapper,
   AnswerText,
-} from "../../FAQ/FAQ.styled";
+} from "../FAQ.styled";
 
 interface FAQAccordionItemProps {
   id: number;

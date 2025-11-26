@@ -52,22 +52,12 @@ const HeaderNavigation = () => {
     >
       <NavList style={{ whiteSpace: "nowrap" }}>
         <NavItem>
-          <NavLink
-            href="/exchange"
-            initial="rest"
-            animate="rest"
-            whileHover="hover"
-          >
+          <NavLink href="/" initial="rest" animate="rest" whileHover="hover">
             <HoverSlideText text="Exchange Results" />
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink
-            href="/locations"
-            initial="rest"
-            animate="rest"
-            whileHover="hover"
-          >
+          <NavLink href="/map" initial="rest" animate="rest" whileHover="hover">
             <HoverSlideText text="Test Locations" />
           </NavLink>
         </NavItem>

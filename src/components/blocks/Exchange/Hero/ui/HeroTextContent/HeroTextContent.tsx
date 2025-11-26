@@ -23,7 +23,7 @@ export const HeroTextContent = () => {
         </HeroSubtitle>
       </TextContainer>
       <HeroButton>
-        <ButtpnText>Get Started</ButtpnText>{" "}
+        <ButtpnText>Create Exchange Page</ButtpnText>{" "}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 256 256"

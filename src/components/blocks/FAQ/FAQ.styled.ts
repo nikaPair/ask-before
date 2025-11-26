@@ -1,12 +1,12 @@
 "use client";
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 export const FAQSection = styled.section`
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 150px 20px 100px;
+  padding: 0 20px;
   background-color: #fff;
 `;
 
@@ -74,7 +74,7 @@ export const QuestionText = styled.span`
   font-family: var(--noheim-medium);
   font-size: 24px;
   font-weight: 400;
-  color: var(--primary);
+  color: #262628;
 `;
 
 export const IconWrapper = styled(motion.div)`
@@ -94,4 +94,30 @@ export const AnswerText = styled.div`
   font-size: 16px;
   line-height: 1.6;
   color: #262628;
+`;
+
+export const ViewMoreButton = styled.button`
+  background: #ed327e;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-family: var(--geist-regular);
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 32px;
+  align-self: center; /* Align to the right of the flex column */
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: #db2777;
+  }
+
+  @media (max-width: 1200px) {
+    align-self: flex-start;
+  }
 `;
