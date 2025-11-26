@@ -7,7 +7,7 @@ export const Section = styled.section`
   padding: 0 20px;
   display: flex;
   justify-content: center;
-  margin-top: 400px;
+  margin-top: 120px;
   margin-bottom: 100px;
 `;
 

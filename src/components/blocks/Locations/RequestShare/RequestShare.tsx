@@ -6,10 +6,8 @@ import {
   Container,
   Title,
   Description,
-  ActionButton,
-  ButtonCircle,
-  ButtonText,
-} from "./RequestShare.styled";
+} from "./ui/RequestShare.styled";
+import { ShareButton } from "./ui/ShareButton";
 
 export default function RequestShare() {
   return (
@@ -21,10 +19,7 @@ export default function RequestShare() {
           creating a private, open space for communication. Learn more about the
           exchange experience now.
         </Description>
-        <ActionButton>
-          <ButtonCircle />
-          <ButtonText>Learn about STI result exchange</ButtonText>
-        </ActionButton>
+        <ShareButton />
       </Container>
     </Section>
   );

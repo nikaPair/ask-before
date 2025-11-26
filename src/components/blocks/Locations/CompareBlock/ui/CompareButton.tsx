@@ -1,0 +1,62 @@
+import React from "react";
+import { Button, ButtonIconWrapper, IconLine } from "./CompareBlock.styled";
+
+export const CompareButton = () => {
+  return (
+    <Button
+      whileHover="hover"
+      initial="rest"
+      animate="rest"
+      whileTap={{ scale: 0.98 }}
+    >
+      Find out the best options
+      <ButtonIconWrapper>
+        <IconLine
+          variants={{
+            rest: { x: "0%" },
+            hover: { x: "100%", transition: { duration: 0.3 } },
+          }}
+        >
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 14 14"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M1.16699 6.99996H12.8337M12.8337 6.99996L7.00033 1.16663M12.8337 6.99996L7.00033 12.8333"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </IconLine>
+        <IconLine
+          variants={{
+            rest: { x: "0%" },
+            hover: { x: "100%", transition: { duration: 0.3 } },
+          }}
+          data-line="clone"
+        >
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 14 14"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M1.16699 6.99996H12.8337M12.8337 6.99996L7.00033 1.16663M12.8337 6.99996L7.00033 12.8333"
+              stroke="white"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </IconLine>
+      </ButtonIconWrapper>
+    </Button>
+  );
+};

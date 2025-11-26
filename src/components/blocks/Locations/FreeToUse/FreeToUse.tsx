@@ -1,18 +1,20 @@
+"use client";
+
 import React from "react";
 import LottieBlockShared from "@/components/blocks/LottieBlock/LottieBlock";
 import { VisibilitySpan } from "@/components/blocks/LottieBlock/LottieBlock.styled";
 
-export default function LottieBlock() {
+export default function FreeToUse() {
   return (
     <LottieBlockShared
-      animationSrc="/Fire.json"
+      animationSrc="/percents.json"
       title={
         <>
           <VisibilitySpan style={{ color: "rgb(149, 74, 235)" }}>
             Free to use
           </VisibilitySpan>
           <br />
-          care for your health and respect your partner's
+          no markups, real clinics' prices
         </>
       }
     />

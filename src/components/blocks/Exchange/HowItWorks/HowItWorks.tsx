@@ -1,78 +1,39 @@
-"use client";
 import React from "react";
-import {
-  Section,
-  Container,
-  Header,
-  Title,
-  Subtitle,
-  CardsGrid,
-  Card,
-  MediaContainer,
-  CardContent,
-  NumberBadge,
-  CardTitle,
-  CardDescription,
-} from "./HowItWorks.styled";
+import HowItWorksShared from "@/components/blocks/HowItWorks/HowItWorks";
 
 export default function HowItWorks() {
+  const items = [
+    {
+      badge: 1,
+      title: "Get tested without doctor referal",
+      description: "Find a clinic that fits your schedule and budget.",
+      media: (
+        <video src="/videos/visibility.mp4" autoPlay loop muted playsInline />
+      ),
+      bgColor: "#FFD1F6",
+    },
+    {
+      badge: 2,
+      title: "Upload your STI results on your own",
+      description: "Make your exchange lovely if you like, or keep it simple.",
+      media: <video src="/videos/attach.mp4" autoPlay loop muted playsInline />,
+      bgColor: "#F3F3F3",
+    },
+    {
+      badge: 3,
+      title: "Show QR code to partner",
+      description:
+        "They’ll land on your exchange page and get the message instantly 😉",
+      media: <img src="/images/howitworks/EN/3.png" alt="Show QR code" />,
+      bgColor: "#FCD875",
+    },
+  ];
+
   return (
-    <Section>
-      <Container>
-        <Header>
-          <Title>Make it quick, convenient and affordable</Title>
-          <Subtitle>
-            We make STI test sharing comfortable, private and stigma-free.
-          </Subtitle>
-        </Header>
-        <CardsGrid>
-          <Card>
-            <MediaContainer $bgColor="#FFD1F6">
-              <video
-                src="/videos/visibility.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-              />
-            </MediaContainer>
-            <CardContent>
-              <NumberBadge>1</NumberBadge>
-              <CardTitle>Get tested without doctor referal</CardTitle>
-              <CardDescription>
-                Find a clinic that fits your schedule and budget.
-              </CardDescription>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <MediaContainer $bgColor="#F3F3F3">
-              <video src="/videos/attach.mp4" autoPlay loop muted playsInline />
-            </MediaContainer>
-            <CardContent>
-              <NumberBadge>2</NumberBadge>
-              <CardTitle>Upload your STI results on your own</CardTitle>
-              <CardDescription>
-                Make your exchange lovely if you like, or keep it simple.
-              </CardDescription>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <MediaContainer $bgColor="#FCD875">
-              <img src="/images/howitworks/EN/3.png" alt="Show QR code" />
-            </MediaContainer>
-            <CardContent>
-              <NumberBadge>3</NumberBadge>
-              <CardTitle>Show QR code to partner</CardTitle>
-              <CardDescription>
-                They’ll land on your exchange page and get the message instantly
-                😉
-              </CardDescription>
-            </CardContent>
-          </Card>
-        </CardsGrid>
-      </Container>
-    </Section>
+    <HowItWorksShared
+      title="Make it quick, convenient and affordable"
+      subtitle="We make STI test sharing comfortable, private and stigma-free."
+      items={items}
+    />
   );
 }

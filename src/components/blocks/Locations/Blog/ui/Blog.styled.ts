@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export const Section = styled.section`
   width: 100%;
-  padding: 0 20px;
+  padding: 100px 20px 0 20px;
   display: flex;
   justify-content: center;
   margin-bottom: 100px;

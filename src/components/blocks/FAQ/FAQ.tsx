@@ -10,7 +10,7 @@ import {
 import { FAQ_DATA } from "@/components/blocks/FAQ/data";
 import { FAQAccordionItem } from "./ui/FAQAccordionItem";
 
-export const FAQ = () => {
+export const FAQ = ({ style }: { style?: React.CSSProperties }) => {
   const [openId, setOpenId] = useState<number | null>(null);
 
   const toggleFAQ = (id: number) => {
@@ -18,7 +18,7 @@ export const FAQ = () => {
   };
 
   return (
-    <FAQSection>
+    <FAQSection style={style}>
       <FAQContainer>
         <Title>Frequently Asked Questions</Title>
         <FAQList>
