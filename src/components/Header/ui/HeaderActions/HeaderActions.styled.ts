@@ -8,6 +8,10 @@ export const ActionsWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 16px;
+
+  @media (max-width: 1130px) {
+    margin-left: auto;
+  }
 `;
 
 const MotionLink = motion.create(Link);
@@ -24,7 +28,7 @@ export const ContactLink = styled(MotionLink)`
   height: 20px; /* Adjust based on font size/line height */
   align-items: center;
 
-  @media (max-width: 750px) {
+  @media (max-width: 1130px) {
     display: none;
   }
 `;
@@ -37,7 +41,7 @@ export const LangButton = styled.div`
   padding: 8px 12px 8px 8px;
   align-items: center;
   cursor: pointer;
-  @media (max-width: 750px) {
+  @media (max-width: 1130px) {
     display: none;
   }
 `;

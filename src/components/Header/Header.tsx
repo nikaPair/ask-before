@@ -8,6 +8,7 @@ import Select from "./ui/Select/Select";
 import HeaderNavigation from "./ui/HeaderNavigation/HeaderNavigation";
 import HeaderActions from "./ui/HeaderActions/HeaderActions";
 import BurgerMenu from "./ui/BurgerMenu/BurgerMenu";
+import MobileMenu from "./ui/MobileMenu/MobileMenu";
 
 import { HeaderProvider, useHeaderContext } from "./HeaderContext";
 
@@ -51,8 +52,9 @@ function HeaderLayout() {
           />
         </Link>
         <HeaderNavigation />
-        <BurgerMenu />
         <HeaderActions />
+        <BurgerMenu />
+        <MobileMenu />
       </HeaderContent>
     </HeaderContainer>
   );

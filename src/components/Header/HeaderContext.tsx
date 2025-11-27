@@ -22,6 +22,7 @@ type HeaderContextType = {
   headerStyle: MotionStyle;
   isBurgerOpen: boolean;
   toggleBurgerMenu: () => void;
+  closeBurgerMenu: () => void;
   effectiveIsShrunk: boolean;
 };
 
@@ -58,6 +59,7 @@ export const HeaderProvider = ({ children }: { children: ReactNode }) => {
     headerStyle,
     isBurgerOpen,
     toggleBurgerMenu,
+    closeBurgerMenu: closeBurger,
     effectiveIsShrunk,
     ...langSelect,
   };

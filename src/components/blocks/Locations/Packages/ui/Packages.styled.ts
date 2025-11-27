@@ -9,6 +9,10 @@ export const Section = styled.section`
   display: flex;
   justify-content: center;
   overflow: hidden;
+
+  @media (max-width: 800px) {
+    padding: 250px 0;
+  }
 `;
 
 export const Container = styled.div`
