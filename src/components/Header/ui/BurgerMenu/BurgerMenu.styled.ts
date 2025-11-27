@@ -11,7 +11,7 @@ export const BurgerButton = styled.button<{ $isShrunk?: boolean }>`
   align-items: center;
   justify-content: center;
 
-  @media (max-width: 750px) {
+  @media (max-width: 1130px) {
     display: flex;
   }
 `;

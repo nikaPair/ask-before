@@ -7,7 +7,7 @@ export const NavList = styled.ul`
   display: flex;
   gap: 32px;
   align-items: center;
-  @media (max-width: 750px) {
+  @media (max-width: 1130px) {
     display: none;
   }
 `;

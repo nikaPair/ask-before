@@ -11,6 +11,7 @@ const BurgerMenu = () => {
       aria-label="Menu"
       $isShrunk={isShrunk}
       onClick={toggleBurgerMenu}
+      className="burger-menu-button"
     >
       <svg
         width="24"
