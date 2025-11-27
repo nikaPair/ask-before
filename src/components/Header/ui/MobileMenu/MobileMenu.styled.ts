@@ -4,13 +4,13 @@ import { motion } from "motion/react";
 import Link from "next/link";
 
 export const MenuContainer = styled(motion.div)`
-  position: absolute;
-  top: 74px;
-  right: 15px;
-  width: 100%;
-  max-width: 320px;
-  z-index: 99;
-  padding-right: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 200;
+  padding: 0;
 
   @media (min-width: 1131px) {
     display: none;
@@ -19,18 +19,41 @@ export const MenuContainer = styled(motion.div)`
 
 export const MenuContent = styled.div`
   background-color: var(--white);
-  border-radius: 24px;
+  width: 100%;
+  height: 100%;
   padding: 24px;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 60px;
+  overflow-y: auto;
+`;
+
+export const MenuHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
 `;
 
 export const MenuLogo = styled.div`
   display: flex;
   justify-content: flex-start;
-  width: 100%;
+`;
+
+export const CloseButton = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: #1a1d21;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    opacity: 0.7;
+  }
 `;
 
 export const MenuItem = styled.div`
@@ -40,7 +63,7 @@ export const MenuItem = styled.div`
 `;
 
 export const MenuLink = styled(Link)`
-  font-size: 16px;
+  font-size: 24px;
   color: var(--primary, #1a1d21);
   text-decoration: none;
   font-family: var(--geist-regular);
@@ -54,7 +77,7 @@ export const MenuLink = styled(Link)`
 `;
 
 export const StarIcon = styled.span`
-  font-size: 16px;
+  font-size: 24px;
 `;
 
 export const MenuDivider = styled.div`
@@ -67,6 +90,7 @@ export const LangContainer = styled.div`
   display: flex;
   gap: 12px;
   justify-content: center;
+  margin-top: auto;
 `;
 
 export const LangOption = styled.div`
@@ -98,8 +122,8 @@ export const SignInButton = styled.button`
   color: white;
   border: none;
   border-radius: 12px;
-  padding: 14px;
-  font-size: 16px;
+  padding: 16px;
+  font-size: 18px;
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.2s;

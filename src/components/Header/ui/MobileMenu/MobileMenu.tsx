@@ -1,12 +1,15 @@
 "use client";
 import React, { useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import { AnimatePresence } from "motion/react";
 import { useHeaderContext } from "../../HeaderContext";
 import {
   MenuContainer,
   MenuContent,
+  MenuHeader,
   MenuLogo,
+  CloseButton,
   MenuItem,
   MenuLink,
   MenuDivider,
@@ -22,6 +25,11 @@ import Romanian from "../Select/ui/Romanian/Romanian";
 const MobileMenu = () => {
   const { isBurgerOpen, closeBurgerMenu } = useHeaderContext();
   const menuRef = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = React.useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -36,32 +44,64 @@ const MobileMenu = () => {
 
     if (isBurgerOpen) {
       document.addEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
     }
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = "";
     };
   }, [isBurgerOpen, closeBurgerMenu]);
 
-  return (
+  if (!mounted) return null;
+
+  return createPortal(
     <AnimatePresence>
       {isBurgerOpen && (
         <MenuContainer
           ref={menuRef}
-          initial={{ opacity: 0, y: -10, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: -10, scale: 0.95 }}
-          transition={{ duration: 0.2 }}
+          initial={{ x: "-100%", opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: "-100%", opacity: 0 }}
+          transition={{ type: "tween", duration: 0.3 }}
         >
           <MenuContent>
-            <MenuLogo>
-              <Image
-                src="/images/Logo.png"
-                alt="AskBefore"
-                width={113}
-                height={26}
-                style={{ objectFit: "contain" }}
-              />
-            </MenuLogo>
+            <MenuHeader>
+              <MenuLogo>
+                <Image
+                  src="/images/Logo.png"
+                  alt="AskBefore"
+                  width={113}
+                  height={26}
+                  style={{ objectFit: "contain" }}
+                />
+              </MenuLogo>
+              <CloseButton onClick={closeBurgerMenu} aria-label="Close menu">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M18 6L6 18"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M6 6L18 18"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </CloseButton>
+            </MenuHeader>
             <MenuItem>
               <MenuLink href="/" onClick={closeBurgerMenu}>
                 Exchange Results
@@ -111,7 +151,8 @@ const MobileMenu = () => {
           </MenuContent>
         </MenuContainer>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 };
 
