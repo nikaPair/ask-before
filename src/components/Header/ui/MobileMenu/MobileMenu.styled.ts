@@ -24,7 +24,7 @@ export const MenuContent = styled.div`
   padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 24px;
   overflow-y: auto;
 `;
 
