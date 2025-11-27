@@ -48,6 +48,7 @@ const MobileMenu = () => {
     } else {
       document.body.style.overflow = "";
     }
+
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
       document.body.style.overflow = "";
