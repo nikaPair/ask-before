@@ -24,7 +24,7 @@ export const MenuContent = styled.div`
   padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 35px;
   overflow-y: auto;
 `;
 
@@ -90,7 +90,6 @@ export const LangContainer = styled.div`
   display: flex;
   gap: 12px;
   justify-content: center;
-  margin-top: auto;
 `;
 
 export const LangOption = styled.div`
